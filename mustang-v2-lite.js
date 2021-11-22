@@ -1,5 +1,6 @@
 var contactURLArray = [];
 var contactArray = [];
+var newContacts =[];
 var loadingContact = 0;
 var currentContactIndex = 0;
 
@@ -24,8 +25,7 @@ function previous() {
     currentContact = contactArray[currentContactIndex];
     viewCurrentContact();
 
-    // Todo: Disable previous button when currentContactIndex equal to 0.
-    // Todo: Save changed items to contacts array and resort array.
+
 }
 
 function next() {
@@ -38,15 +38,28 @@ function next() {
 }
 
 function add() {
-    console.log('add()');
+  newContacts = contactArray[currentContactIndex];
+  console.log(currentContact);
+  document.getElementById("nameID").value = "";
+  document.getElementById("emailID").value = "";
+  document.getElementById("cityID").value = "";
+  document.getElementById("stateID").value = "";
+  document.getElementById("zipID").value = "";
 
-    // Todo: Implement add functionality by inserting new element into array.
+
 }
 
 function remove() {
-    console.log('remove()');
+  currentContact = contactArray[currentContactIndex];
+  console.log(currentContact);
+  document.getElementById("nameID").value = currentContact.preferredName;
+  document.getElementById("emailID").value = currentContact.email;
+  document.getElementById("cityID").value = currentContact.city;
+  document.getElementById("stateID").value = currentContact.state;
+  document.getElementById("zipID").value = currentContact.zip;
 
-    // Todo: Implement delete functionality by deleting element from array.
+  // Todo: Add additional fields.
+  document.getElementById("statusID").innerHTML = "Status: Viewing contact " + (currentContactIndex+1) + " of " + contactArray.length;
 }
 
 function zipFocusFunction() {
