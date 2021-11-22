@@ -84,6 +84,7 @@ function getPlace() {
         }
     }
     xhr.open("GET", "getCityState.php?zip=" + zip);
+    xhr.send(null);
 }
 
 function initApplication() {
@@ -113,7 +114,9 @@ function loadContacts() {
     contactArray.length = 0;
     loadingContact = 0;
 
-
+    // Note that W3C documentation and my experimentation indicate that each XMLHttpRequest callback function must be a
+    // unique instance of a function. A better implmentation would have had an array of callback functions instead of a
+    // recursive call to loadNextContact().
     if (contactURLArray.length > loadingContact) {
         loadNextContact(contactURLArray[loadingContact]);
     }
