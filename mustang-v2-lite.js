@@ -49,7 +49,11 @@ function remove() {
     // Todo: Implement delete functionality by deleting element from array.
 }
 
+function zipFocusFunction() {
+    console.log('focusFunction()');
 
+    // Todo: Remove the function as it is not needed.
+}
 
 function zipBlurFunction() {
     getPlace();
