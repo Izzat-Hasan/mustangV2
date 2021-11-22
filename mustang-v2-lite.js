@@ -38,7 +38,7 @@ function next() {
 }
 
 function add() {
-  newContacts = contactArray[currentContactIndex];
+  currentContact = contactArray[currentContactIndex];
   console.log(currentContact);
   document.getElementById("nameID").value = "";
   document.getElementById("emailID").value = "";
