@@ -1,18 +1,17 @@
-
 var contactURLArray = [];
 var contactArray = [];
 var loadingContact = 0;
-var currentContactIndex = 0; 
+var currentContactIndex = 0;
 
 // Functions
 function viewCurrentContact() {
     currentContact = contactArray[currentContactIndex];
     console.log(currentContact);
-    document.getElementById("nameID").value = currentContact.preferredName;   
-    document.getElementById("emailID").value = currentContact.email;   
-    document.getElementById("cityID").value = currentContact.city;   
+    document.getElementById("nameID").value = currentContact.preferredName;
+    document.getElementById("emailID").value = currentContact.email;
+    document.getElementById("cityID").value = currentContact.city;
     document.getElementById("stateID").value = currentContact.state;
-    document.getElementById("zipID").value = currentContact.zip;  
+    document.getElementById("zipID").value = currentContact.zip;
 
     // Todo: Add additional fields.
     document.getElementById("statusID").innerHTML = "Status: Viewing contact " + (currentContactIndex+1) + " of " + contactArray.length;
@@ -35,9 +34,7 @@ function next() {
     }
     currentContact = contactArray[currentContactIndex];
     viewCurrentContact();
-    
-    // Todo: Disable next button when there is no next item.
-    // Todo: Save changed items to contacts array and resort array.
+
 }
 
 function add() {
@@ -65,11 +62,10 @@ function zipBlurFunction() {
 function keyPressed() {
     console.log('keyPressed()');
 
-    // This type of function should be useful in search as it implements keyPressed.
 }
 
 function getPlace() {
-    var zip = document.getElementById("zipID").value
+    var zip = document.getElementById("zipID1").value
     console.log("zip:"+zip);
 
     console.log("function getPlace(zip) { ... }");
@@ -81,10 +77,10 @@ function getPlace() {
             var result = xhr.responseText;
             console.log("result:"+result);
             var place = result.split(', ');
-            if (document.getElementById("cityID").value == "")
-                document.getElementById("cityID").value = place[0];
-            if (document.getElementById("stateID").value == "")
-                document.getElementById("stateID").value = place[1];
+            if (document.getElementById("cityID1").value == "")
+                document.getElementById("cityID1").value = place[0];
+            if (document.getElementById("stateID1").value == "")
+                document.getElementById("stateID1").value = place[1];
         }
     }
     xhr.open("GET", "getCityState.php?zip=" + zip);
@@ -92,7 +88,7 @@ function getPlace() {
 }
 
 function initApplication() {
-    console.log('Mustang v2 Lite - Starting!'); 
+    console.log('Mustang v2 Lite - Starting!');
     loadIndex();
 }
 
@@ -118,8 +114,8 @@ function loadContacts() {
     contactArray.length = 0;
     loadingContact = 0;
 
-    // Note that W3C documentation and my experimentation indicate that each XMLHttpRequest callback function must be a 
-    // unique instance of a function. A better implmentation would have had an array of callback functions instead of a 
+    // Note that W3C documentation and my experimentation indicate that each XMLHttpRequest callback function must be a
+    // unique instance of a function. A better implmentation would have had an array of callback functions instead of a
     // recursive call to loadNextContact().
     if (contactURLArray.length > loadingContact) {
         loadNextContact(contactURLArray[loadingContact]);
@@ -150,12 +146,9 @@ function loadNextContact(URL) {
             viewCurrentContact()
             console.log(contactArray);
 
-            //Todo: Sort contacts array.
+
         }
     }
 
     contactRequest.send();
 }
-
-
-

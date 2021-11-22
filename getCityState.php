@@ -1,18 +1,18 @@
 <?php
-// getCityState.php 
-//  Given a "601**" zip code, returns the city and state 
+// getCityState.php
+//  Given a "601**" zip code, returns the city and state
 //  for that zip code.
 //
 //  There is a defect that you need to fix.
 //  BugBug: "60106" should return "Bensenville, IL"
-      
+
   $cityState = array(
     "60101" => "Addison, IL",
     "60102" => "Algonquin, IL",
     "60103" => "Bartlett, IL",
     "60104" => "Bellwood, IL",
     "60105" => "Bensenville, IL",
-    "60106" => "Ericville, IL",
+    "60106" => "Bensenville, IL",
     "60107" => "Streamwood, IL",
     "60108" => "Bloomingdale, IL",
     "60109" => "Burlington, IL",
